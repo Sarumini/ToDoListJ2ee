@@ -18,6 +18,9 @@
    <h1><%="Welcome "+name %></h1>
    <h1><%="email :"+email %></h1>
    <% String image=new String(Base64.getEncoder().encode(u.getUserimage())) ;%>
-   <img alt="" src="data:image/jpeg;base64,<%=image%>" width="50%" heigth="50%">
+   <img alt="" src="data:image/jpeg;base64,<%=image%>" width="50%" heigth="50%"><br>
+   <a href="addtask.jsp">AddTask</a>
+   
+  
 </body>
 </html>

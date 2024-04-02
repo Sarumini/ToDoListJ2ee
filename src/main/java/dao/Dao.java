@@ -9,6 +9,8 @@ import javax.sql.rowset.serial.SerialBlob;
 
 import java.sql.Blob;
 import java.sql.Connection;
+
+import dto.Task;
 import dto.User;
 
 public class Dao
@@ -59,4 +61,23 @@ public class Dao
 	   }
 	   
    }
+   
+   public int createtask(Task task) throws ClassNotFoundException, SQLException
+   {
+	   	Connection con=getConnection();
+	   	PreparedStatement pst=con.prepareStatement("insert into task values(?,?,?,?,?,?,?)");
+	   	pst.setInt(1, task.getTaskid());
+	   	pst.setString(2, task.getTasktitle());
+	   	pst.setString(3, task.getTaskdescription());
+	   	pst.setString(4, task.getTaskpriority());
+	   	pst.setString(5, task.getTaskduedate());
+	   	pst.setString(6, task.getTaskstatus());
+	   	pst.setInt(7, task.getUserid());
+	   	
+	   	int res=pst.executeUpdate();
+	   	
+	    return res;
+	   
+   }
+   
 }
